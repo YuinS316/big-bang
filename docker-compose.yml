@@ -1,0 +1,36 @@
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: big_bang_ollama
+    volumes:
+      - big_bang_ollama_data:/root/.ollama
+    ports:
+      - "11434:11434"
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:latest
+    container_name: big_bang_postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
+    volumes:
+      - big_bang_postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432" # 修改主机端口
+    restart: unless-stopped
+
+  redis:
+    image: redis:latest
+    container_name: big_bang_redis
+    ports:
+      - "6379:6379" # 修改主机端口
+    volumes:
+      - big_bang_redis_data:/data
+    restart: unless-stopped
+
+volumes:
+  big_bang_ollama_data:
+  big_bang_postgres_data:
+  big_bang_redis_data:
