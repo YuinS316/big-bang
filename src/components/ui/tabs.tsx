@@ -26,7 +26,7 @@ const TabsList = React.forwardRef<
     const updateActiveRect = () => {
       const activeTab = list.querySelector(
         '[data-state="active"]',
-      ) as HTMLElement;
+      )!;
       if (activeTab) {
         const rect = activeTab.getBoundingClientRect();
         const listRect = list.getBoundingClientRect();

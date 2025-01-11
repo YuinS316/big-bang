@@ -160,3 +160,4 @@ export const RegisterForm = forwardRef<RegisterFormRef, RegisterFormProps>(
     );
   },
 );
+RegisterForm.displayName = "RegisterForm";

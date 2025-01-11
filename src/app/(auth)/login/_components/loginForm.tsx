@@ -119,3 +119,4 @@ export const LoginForm = forwardRef<LoginFormRef, LoginFormProps>(
     );
   },
 );
+LoginForm.displayName = "LoginForm";

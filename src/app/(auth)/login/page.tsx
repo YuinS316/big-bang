@@ -3,17 +3,9 @@
 import * as React from "react";
 
 import {
-  Input,
-  Button,
   Tabs,
   TabsList,
   TabsTrigger,
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
   Card,
   CardContent,
 } from "~/components/ui";
@@ -24,11 +16,11 @@ import { cn } from "~/lib/utils";
 import { CollapsingText } from "~/components/ui";
 import {
   LoginForm,
-  LoginFormRef,
+  type LoginFormRef,
 } from "~/app/(auth)/login/_components/loginForm";
 import {
   RegisterForm,
-  RegisterFormRef,
+  type RegisterFormRef,
 } from "~/app/(auth)/login/_components/registerForm";
 
 // 登录表单验证 Schema

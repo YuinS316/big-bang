@@ -4,7 +4,7 @@ import {
   generateUploadButton,
   generateUploadDropzone,
 } from "@uploadthing/react";
-import { OurFileRouter } from "~/app/api/uploadthing/core";
+import { type OurFileRouter } from "~/app/api/uploadthing/core";
 
 // 生成基础的上传组件
 const BaseUploadButton = generateUploadButton<OurFileRouter>();

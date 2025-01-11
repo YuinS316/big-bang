@@ -39,7 +39,7 @@ export const Breadcrumb = ({
       const path = `/${segments.slice(0, index + 1).join("/")}`;
 
       // 获取显示名称：优先使用映射表中的名称，否则使用路径名
-      const name = allRouteNames[segment] || segment;
+      const name = allRouteNames[segment] ?? segment;
 
       return {
         name,
