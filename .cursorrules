@@ -8,6 +8,8 @@
 - Next.js App Router
 - Tailwind CSS
 - react18-use
+- shadcn/ui
+- lucide-react
 
 服务端
 - TypeScript

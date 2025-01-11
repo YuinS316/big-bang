@@ -18,7 +18,7 @@ I will update the todo list when I finish feature.
 
 ### Part1 Basic
 
-- [ ] Init project
-- [ ] Deploy project to vercel
+- [x] Init project
+- [x] Deploy project to vercel
 - [ ] Connect to database
 - [ ] Setup database
