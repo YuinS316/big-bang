@@ -8,10 +8,13 @@ export const generateMetadata = (): Metadata => {
   return { title: "首页" };
 };
 
-export default async function Home() {
-  // const users = await api.user.getUsers();
+// 添加此行禁用静态生成
+export const dynamic = "force-dynamic";
 
-  const users = await db.query.users.findMany();
+export default async function Home() {
+  const users = await api.user.getUsers();
+
+  // const users = await db.query.users.findMany();
 
   // console.log(users);
 
