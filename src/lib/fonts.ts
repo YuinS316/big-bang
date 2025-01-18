@@ -1,5 +1,4 @@
 import { Pacifico } from "next/font/google";
-import localFont from "next/font/local";
 
 //  使用谷歌字体
 export const pacifico = Pacifico({
@@ -7,6 +6,7 @@ export const pacifico = Pacifico({
   weight: ["400"],
   variable: "--font-pacifico",
   display: "swap",
+  preload: true,
 });
 
 // 使用本地字体

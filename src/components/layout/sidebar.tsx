@@ -5,12 +5,13 @@ import { cn } from "~/lib/utils";
 import { Settings, User, ChevronLeft, ChevronRight } from "lucide-react";
 import { CollapsingText } from "../ui";
 import { menuList } from "~/constants/routerMap";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 interface SidebarItemProps {
   icon: React.ReactNode;
   label: string;
   isCollapsed: boolean;
+  path?: string;
   onClick?: () => void;
 }
 
@@ -18,15 +19,33 @@ const SidebarItem = ({
   icon,
   label,
   isCollapsed,
+  path,
   onClick,
 }: SidebarItemProps) => {
+  const pathname = usePathname();
+  const router = useRouter();
+  const isActive = pathname.startsWith(path ?? "");
+
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    }
+
+    if (path) {
+      router.push(path);
+    }
+  };
+
   return (
     <div
       className={cn(
-        "flex cursor-pointer items-center space-x-4 rounded-lg p-3 text-gray-700 transition-all hover:bg-gray-100",
+        "flex cursor-pointer items-center space-x-4 rounded-lg p-3 transition-all",
         isCollapsed && "space-x-0",
+        isActive
+          ? "bg-foreground text-white"
+          : "text-gray-700 hover:bg-gray-100",
       )}
-      onClick={onClick}
+      onClick={handleClick}
     >
       <div className="ml-1">{icon}</div>
       <div
@@ -56,7 +75,7 @@ const SidebarHeader = ({ isCollapsed }: { isCollapsed: boolean }) => {
             collapsedText="BB"
             unCollapsedText="BigBang"
             isCollapsed={isCollapsed}
-            className={cn("font-pacifico h-10 text-nowrap text-2xl")}
+            className={cn("h-10 text-nowrap font-pacifico text-2xl")}
           />
         </div>
       </div>
@@ -121,6 +140,7 @@ const Sidebar = () => {
             icon={item.icon}
             label={item.label}
             isCollapsed={isCollapsed}
+            path={item.path}
           />
         ))}
       </div>
@@ -132,14 +152,15 @@ const Sidebar = () => {
         <SidebarItem
           icon={<Settings size={24} />}
           label="设置"
+          path="/settings"
           isCollapsed={isCollapsed}
         />
 
         <SidebarItem
           icon={<User size={24} />}
-          label="个人信息"
+          label="登录"
           isCollapsed={isCollapsed}
-          onClick={() => router.push("/login")}
+          path="/login"
         />
       </div>
     </div>

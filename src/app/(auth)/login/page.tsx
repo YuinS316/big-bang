@@ -22,6 +22,7 @@ import {
   RegisterForm,
   type RegisterFormRef,
 } from "~/app/(auth)/login/_components/registerForm";
+import { Metadata } from "next";
 
 // 登录表单验证 Schema
 const loginSchema = z.object({

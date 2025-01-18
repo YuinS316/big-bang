@@ -20,5 +20,9 @@ I will update the todo list when I finish feature.
 
 - [x] Init project
 - [x] Deploy project to vercel
+- [x] Base layout
+
+### Part2 client
+
 - [ ] Connect to database
 - [ ] Setup database

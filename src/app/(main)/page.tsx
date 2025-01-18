@@ -1,16 +1,34 @@
-import { LatestPost } from "~/app/_components/post";
-import { UploadButton } from "~/components/common/uploader";
-import { auth } from "~/server/auth";
 import { api, HydrateClient } from "~/trpc/server";
-import { unstable_noStore as noStore } from "next/cache";
+import { Metadata } from "next";
+import { db } from "~/server/db";
+import { UserList } from "./_components/userList";
+
+//  metadata只能在服务端组件导出，无法在客户端组件导出
+export const generateMetadata = (): Metadata => {
+  return { title: "首页" };
+};
 
 export default async function Home() {
-  noStore();
+  // const users = await api.user.getUsers();
+
+  const users = await db.query.users.findMany();
+
+  // console.log(users);
+
   return (
     <main className="">
       <div>
-        <UploadButton endpoint="imageUploader" />
-        <div>你好</div>
+        <div>服务端渲染</div>
+
+        <div>
+          {users.map((user) => (
+            <div key={user.id}>{user.name}</div>
+          ))}
+        </div>
+
+        <div>客户端渲染</div>
+
+        <UserList />
       </div>
     </main>
   );

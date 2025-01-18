@@ -14,7 +14,7 @@ services:
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydatabase
+      POSTGRES_DB: big-bang
     volumes:
       - big_bang_postgres_data:/var/lib/postgresql/data
     ports:

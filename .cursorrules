@@ -7,6 +7,7 @@
 - Node.js
 - Next.js App Router
 - Tailwind CSS
+- tailwindcss-animated
 - react18-use
 - shadcn/ui
 - lucide-react
@@ -39,11 +40,14 @@
 - 命名使用xx-xx-xx的形式
 
 UI 和样式：
+
 - 基于 Shadcn UI 与 Tailwind CSS 进行组件设计
 - 使用 CSS Grid 或 Flexbox 进行布局
 - 在所有 UI 元素中实现一致的样式
+- 如果需要使用动画，请使用 tailwindcss-animated 库
 
 上下文感知开发：
+
 - 提供建议或生成代码时，始终考虑整个项目上下文
 - 避免重复现有功能或创建冲突的实现
 - 确保新代码与现有项目结构和架构无缝集成
@@ -51,6 +55,7 @@ UI 和样式：
 - 回答问题或提供解决方案时，考虑先前讨论或实施的功能，以防止矛盾或重复
 
 代码输出：
+
 - 提供代码时，始终输出整个文件内容，不仅仅是新部分或修改的部分
 - 包括所有必要的导入、声明和周围的代码，以确保文件完整且功能正常
 - 为文件中的重大更改或添加提供注释或解释
